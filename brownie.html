@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#fff5f8" />
+<title>Angel’s Little Birthday Universe ♡</title>
+<style>
+  :root{
+    --paper:#fffdfd;--pink:#f8c8d8;--pink2:#ffe6ee;--pink3:#f4a9c2;--rose:#bd6f8b;--ink:#59434c;--muted:#927c84;--line:#f3dce4;--white:#fff;--lilac:#eee6ff;--mint:#e6f6ec;--shadow:0 20px 60px rgba(171,111,136,.13);--round:28px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth;scroll-padding-top:90px}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:"Trebuchet MS","Segoe UI",system-ui,sans-serif;line-height:1.6;overflow-x:hidden}
+  button,input,textarea{font:inherit} button{cursor:pointer}
+  button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid #d78ba6;outline-offset:3px}
+  ::selection{background:#f9d8e4;color:#633e4d}
+  .hidden{display:none!important}
+  .serif{font-family:Georgia,"Times New Roman",serif;font-weight:400;letter-spacing:-.045em;line-height:1.08}
+  .eyebrow{display:inline-flex;gap:8px;align-items:center;padding:7px 13px;border:1px solid #f5dce5;border-radius:99px;background:rgba(255,255,255,.78);color:#a86f84;font-size:.76rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
+  .muted{color:var(--muted)}
+  .btn{border:0;border-radius:999px;padding:13px 21px;font-weight:800;display:inline-flex;justify-content:center;align-items:center;gap:9px;transition:transform .18s ease,box-shadow .18s ease,background .18s ease;text-decoration:none}
+  .btn:hover{transform:translateY(-2px)} .btn:active{transform:translateY(0) scale(.98)}
+  .btn-primary{color:#fff;background:linear-gradient(135deg,#eaa2bc,#d77f9f);box-shadow:0 10px 24px #e9adc44f}
+  .btn-soft{color:#9b6178;background:#fff;border:1px solid #f1d5df}
+  .btn-cream{color:#775767;background:#fff4f7;border:1px solid #f5dce5}
+  .btn-small{padding:9px 14px;font-size:.9rem}
+  .text-link{color:#b26784;font-weight:800;text-decoration:none;border-bottom:1px dashed #d9a1b5}
+  .stars-bg{position:fixed;inset:0;pointer-events:none;z-index:-1;opacity:.52;background-image:radial-gradient(#edc9d7 1px,transparent 1px),radial-gradient(#f3deea 1px,transparent 1px);background-size:45px 45px,73px 73px;background-position:0 0,21px 19px;mask-image:linear-gradient(to bottom,black,transparent 85%)}
+  .ambient{position:fixed;z-index:-1;width:360px;height:360px;filter:blur(1px);border-radius:50%;pointer-events:none;opacity:.34}
+  .ambient.one{background:#fde4ec;left:-180px;top:10%}.ambient.two{background:#f0eaff;right:-190px;top:48%}
+  .sparkle{position:absolute;color:#e8a4bb;animation:twinkle 3s ease-in-out infinite}
+  @keyframes twinkle{0%,100%{opacity:.45;transform:scale(.9) rotate(0)}50%{opacity:1;transform:scale(1.12) rotate(15deg)}}
+  @keyframes bob{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-10px) rotate(2deg)}}
+  @keyframes drift{0%{transform:translateY(12px) rotate(-8deg)}50%{transform:translateY(-8px) rotate(5deg)}100%{transform:translateY(12px) rotate(-8deg)}}
+  @keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
+  @keyframes pop{0%{transform:scale(.65);opacity:0}70%{transform:scale(1.08)}100%{transform:scale(1);opacity:1}}
+  @keyframes confettiFall{to{transform:translateY(105vh) rotate(600deg);opacity:.15}}
+
+  /* intro / game door */
+  #adventure{min-height:100svh;display:flex;align-items:center;justify-content:center;padding:30px 18px;position:relative;overflow:hidden;background:radial-gradient(ellipse at 18% 12%,#fff1f6 0,transparent 40%),radial-gradient(ellipse at 88% 80%,#f2edff 0,transparent 38%)}
+  .adventure-wrap{width:min(960px,100%);margin:auto}
+  .adventure-top{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:18px;color:#a7798d;font-size:.86rem}
+  .brand-mini{font-weight:900;letter-spacing:.04em}
+  .top-pill{background:#fff9fb;border:1px solid var(--line);border-radius:99px;padding:7px 12px}
+  .door-card{background:rgba(255,255,255,.83);backdrop-filter:blur(14px);border:1px solid #f5dce5;border-radius:34px;box-shadow:var(--shadow);padding:clamp(24px,5vw,56px);position:relative;overflow:hidden}
+  .door-card:before{content:"";position:absolute;width:270px;height:270px;border-radius:50%;background:#fff0f5;right:-120px;top:-150px;z-index:-1}
+  .door-grid{display:grid;grid-template-columns:1.15fr .85fr;align-items:center;gap:25px}
+  .door-copy h1{font-size:clamp(2.7rem,6vw,5.1rem);margin:18px 0 15px;color:#674957}
+  .door-copy h1 em{color:#d982a2;font-style:normal}
+  .door-copy p{max-width:500px;color:#8c7580;font-size:1.05rem}
+  .name-row{margin:25px 0 18px;max-width:390px}
+  .name-row label{display:block;font-size:.84rem;font-weight:800;color:#8c6677;margin-bottom:7px}
+  .name-row input{width:100%;padding:14px 16px;border:1px solid #efd6e0;border-radius:15px;background:#fffbfd;color:var(--ink);outline:none}
+  .name-row input:focus{border-color:#d98eaa;box-shadow:0 0 0 4px #fceaf0}
+  .door-art{min-height:330px;display:grid;place-items:center;position:relative}
+  .moon{width:min(270px,70vw);aspect-ratio:1;border-radius:50%;background:linear-gradient(145deg,#fff3f8,#f9dbe6);box-shadow:inset -12px -14px 35px #e9b7ca42,0 24px 42px #d998b52b;display:grid;place-items:center;position:relative}
+  .moon:after{content:"";position:absolute;inset:16px;border:1px dashed #e5a8be;border-radius:50%}
+  .bunny{position:relative;width:142px;height:155px;animation:bob 4s ease-in-out infinite}
+  .ear{position:absolute;width:35px;height:82px;top:0;background:#fffafc;border:2px solid #e8bdcb;border-radius:70% 70% 45% 45%;z-index:1;transform-origin:bottom}
+  .ear:after{content:"";position:absolute;inset:9px 8px 10px;background:#f4bfd0;border-radius:inherit}
+  .ear.left{left:26px;transform:rotate(-14deg)}.ear.right{right:26px;transform:rotate(14deg)}
+  .bunny-face{position:absolute;width:132px;height:112px;bottom:0;left:5px;background:#fffafd;border:2px solid #e8bdcb;border-radius:48% 48% 43% 43%;z-index:2;box-shadow:0 10px 18px #ce8ca41a}
+  .eye{position:absolute;width:8px;height:11px;background:#604650;top:42px;border-radius:50%}.eye.left{left:35px}.eye.right{right:35px}
+  .nose{position:absolute;width:10px;height:7px;left:calc(50% - 5px);top:57px;border-radius:50% 50% 65% 65%;background:#e79ab5}
+  .mouth{position:absolute;left:calc(50% - 8px);top:62px;width:16px;height:10px;border-bottom:2px solid #916276;border-radius:0 0 50% 50%}
+  .cheek{position:absolute;top:61px;width:20px;height:10px;background:#f7c5d5;border-radius:50%;opacity:.8}.cheek.left{left:16px}.cheek.right{right:16px}
+  .bow{position:absolute;right:2px;top:72px;z-index:3;width:32px;height:22px;transform:rotate(12deg)}.bow:before,.bow:after{content:"";position:absolute;width:17px;height:20px;background:#e797b2;border:1px solid #d77f9f}.bow:before{left:0;border-radius:90% 25% 70% 25%;transform:rotate(-15deg)}.bow:after{right:0;border-radius:25% 90% 25% 70%;transform:rotate(15deg)}
+  .bow i{position:absolute;z-index:2;left:12px;top:7px;width:9px;height:9px;background:#c86d91;border-radius:50%}
+  .floating{position:absolute;font-size:2rem;animation:drift 5s ease-in-out infinite}.floating.f1{top:23px;left:22px}.floating.f2{right:7px;top:64px;animation-delay:-2s}.floating.f3{bottom:23px;left:2px;animation-delay:-1s}
+  .game-progress{margin:0 0 26px}
+  .progress-label{display:flex;justify-content:space-between;gap:10px;margin-bottom:9px;color:#987b89;font-size:.83rem;font-weight:800}
+  .progress-track{height:7px;border-radius:99px;background:#f6e8ed;overflow:hidden}.progress-fill{height:100%;width:0;border-radius:99px;background:linear-gradient(90deg,#f6c9d9,#da8ba7);transition:width .5s ease}
+  .game-panel{animation:pop .35s ease both}
+  .game-head{text-align:center;margin-bottom:23px}
+  .game-head .mini-label{color:#bb8297;font-size:.78rem;font-weight:900;letter-spacing:.16em;text-transform:uppercase}
+  .game-head h2{font-size:clamp(2rem,5vw,3.3rem);margin:8px 0;color:#674957}
+  .game-head p{margin:0 auto;max-width:590px;color:#947c86}
+  .game-stage{border:1px solid #f3dfe6;border-radius:25px;background:linear-gradient(135deg,#fffafd,#fff4f8);padding:clamp(16px,3vw,28px);min-height:250px}
+  .game-footer{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-top:18px}
+  .game-status{color:#a07889;font-size:.9rem;font-weight:800}
+  .bunny-hunt-meta{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin:0 0 16px}
+  .bunny-score-pill{display:inline-flex;align-items:center;gap:8px;border:1px solid #f1d5e0;border-radius:999px;background:#fff;padding:9px 14px;color:#a56b83;font-size:.9rem;font-weight:900;white-space:nowrap}
+  .bunny-helper{font-size:.88rem;color:#a07c8b;font-weight:700}
+  .bunny-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+  .hunt-tile{min-height:74px;border:1px solid #f2dce5;border-radius:18px;background:linear-gradient(145deg,#fff,#fff0f5);display:grid;place-items:center;font-size:2rem;transition:transform .18s,border .18s,background .18s;position:relative;overflow:hidden;box-shadow:0 4px 0 #f7e7ed}
+  .hunt-tile:hover:not(:disabled){transform:translateY(-3px);border-color:#e5aac0}.hunt-tile.covered{color:#bd8298}.hunt-tile.found{background:#fce8ef;border-color:#e8aac1;box-shadow:0 4px 0 #f3cfdd;animation:pop .25s ease;cursor:default}.hunt-tile.wrong{background:#fff;border-color:#ecc9d7;animation:wiggle .25s ease}.hunt-tile:disabled{cursor:default}
+  @keyframes wiggle{25%{transform:translateX(-4px)}75%{transform:translateX(4px)}}
+  .memory-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;max-width:540px;margin:auto}
+  .memory-card{height:92px;border:1px solid #f0d8e2;border-radius:17px;background:white;color:transparent;font-size:1.85rem;transition:transform .2s,background .2s;box-shadow:0 4px 0 #f5e5eb;position:relative}
+  .memory-card:before{content:"♡";position:absolute;inset:0;display:grid;place-items:center;color:#e2a2b9;font-size:1.9rem}.memory-card.revealed,.memory-card.matched{color:initial;background:#fff0f5}.memory-card.revealed:before,.memory-card.matched:before{display:none}.memory-card.matched{border-color:#b9dec5;box-shadow:0 4px 0 #d9eee0;cursor:default}
+  .choice-stack{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;max-width:650px;margin:auto}
+  .choice-card{border:1px solid #f0d8e2;background:#fff;border-radius:20px;padding:20px 15px;min-height:125px;color:#775966;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;font-weight:900;transition:all .2s}.choice-card span{font-size:2rem}.choice-card:hover,.choice-card.chosen{background:#ffedf3;border-color:#df9db5;transform:translateY(-3px);box-shadow:0 12px 24px #e6afc21e}
+  .catch-zone{min-height:250px;position:relative;overflow:hidden;border-radius:20px;background:radial-gradient(ellipse at center,#fff,#fff2f7);border:1px dashed #eac3d1}
+  .catch-heart{position:absolute;border:0;background:transparent;font-size:2.2rem;filter:drop-shadow(0 5px 5px #e7abc74d);animation:bob 1.8s ease-in-out infinite;transition:transform .15s}
+  .catch-heart:hover{transform:scale(1.25)}
+  .quality-grid{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;max-width:650px;margin:0 auto}
+  .quality-chip{border:1px solid #eed8e1;border-radius:99px;background:#fff;color:#906b7a;padding:11px 15px;font-weight:800;transition:all .2s}.quality-chip.selected{background:#f7d8e3;color:#805369;border-color:#db9ab2;box-shadow:0 6px 15px #e2a4bb27}
+  .word-puzzle{text-align:center}.scramble-word{font-size:clamp(2rem,6vw,3.4rem);letter-spacing:.2em;color:#bf7591;font-weight:900;margin:10px 0 18px}
+  .letter-row{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:20px auto}.letter-btn{width:49px;height:53px;border:1px solid #eac8d5;background:#fff;border-radius:14px;color:#7d5969;font-size:1.25rem;font-weight:900;box-shadow:0 4px 0 #f2e1e7}.letter-btn:disabled{opacity:.28;box-shadow:none}
+  .answer-slots{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;min-height:50px}.answer-slot{width:43px;height:45px;border:1px dashed #dca2b8;border-radius:12px;display:grid;place-items:center;color:#ad6c86;font-weight:900;background:#fff8fb}
+  .confetti{position:fixed;top:-20px;width:9px;height:13px;border-radius:3px;z-index:100;pointer-events:none;animation:confettiFall 2.4s linear forwards}
+  .reveal-door{text-align:center;padding:30px 10px}.reveal-door .big-bow{font-size:4.5rem;animation:bob 2.5s infinite}.reveal-door h2{font-size:clamp(2.6rem,6vw,4.5rem);margin:8px 0;color:#6d4d5b}.reveal-door p{max-width:510px;margin:0 auto 25px;color:#947c86}
+
+  /* birthday site */
+  #birthdaySite{display:none;background:#fffdfd;min-height:100vh}
+  .site-nav{position:sticky;top:0;z-index:40;background:#fffdf0e8;background:rgba(255,253,253,.88);backdrop-filter:blur(16px);border-bottom:1px solid #f5e5eb}
+  .nav-inner{width:min(1160px,calc(100% - 36px));margin:auto;display:flex;align-items:center;justify-content:space-between;gap:18px;min-height:72px}
+  .site-logo{display:flex;align-items:center;gap:10px;font-weight:900;color:#765465;white-space:nowrap}.logo-bunny{width:35px;height:35px;display:grid;place-items:center;background:#ffedf3;border-radius:12px;font-size:1.25rem}
+  .nav-links{display:flex;align-items:center;gap:20px}.nav-links a{color:#8b707d;text-decoration:none;font-size:.89rem;font-weight:800}.nav-links a:hover{color:#cb7e9d}.nav-links .nav-cta{padding:9px 14px;border-radius:99px;background:#fce6ee;color:#a35f7b}
+  .hero{position:relative;overflow:hidden;min-height:670px;display:grid;place-items:center;padding:78px 20px 90px;background:radial-gradient(ellipse at 20% 25%,#fff0f5 0,transparent 40%),radial-gradient(ellipse at 85% 65%,#f2edff 0,transparent 34%),linear-gradient(180deg,#fffafa,#fffdfd)}
+  .hero-inner{max-width:1050px;width:100%;display:grid;grid-template-columns:1.18fr .82fr;align-items:center;gap:35px;position:relative}
+  .hero-copy h1{font-size:clamp(3.3rem,7vw,6.9rem);color:#634553;margin:20px 0 18px}.hero-copy h1 .name-highlight{color:#d987a4;display:block;overflow-wrap:anywhere}.hero-copy p{max-width:580px;color:#917985;font-size:1.1rem;margin:0 0 27px}.hero-actions{display:flex;flex-wrap:wrap;gap:11px}
+  .hero-art{min-height:390px;display:grid;place-items:center;position:relative}.hero-art .moon{width:min(340px,76vw)}.hero-art .bunny{transform:scale(1.15);}.orbit{position:absolute;width:390px;height:390px;border:1px dashed #eac4d2;border-radius:50%;animation:spin 40s linear infinite}.orbit:before,.orbit:after{content:"✦";position:absolute;color:#d991ac;font-size:1.6rem}.orbit:before{top:35px;left:35px}.orbit:after{bottom:35px;right:30px}@keyframes spin{to{transform:rotate(360deg)}}
+  .hero-floating{position:absolute;font-size:2rem;animation:drift 5s ease-in-out infinite}.hf1{top:10%;right:10%}.hf2{bottom:14%;left:0;animation-delay:-2s}.hf3{top:20%;left:3%;animation-delay:-1s}
+  .scroll-note{position:absolute;bottom:25px;left:50%;transform:translateX(-50%);font-size:.77rem;letter-spacing:.13em;text-transform:uppercase;color:#bc91a2;font-weight:900;white-space:nowrap}
+  .ticker{background:#fceaf0;border-top:1px solid #f6dce5;border-bottom:1px solid #f6dce5;overflow:hidden;padding:12px 0;color:#b3748c;font-size:.8rem;font-weight:900;letter-spacing:.1em;white-space:nowrap}
+  .ticker-track{display:flex;justify-content:space-around;gap:28px;min-width:900px}
+  .section{padding:95px 20px;position:relative}.section-inner{max-width:1080px;margin:auto}.section-heading{text-align:center;max-width:700px;margin:0 auto 42px}.section-heading h2{font-size:clamp(2.4rem,5vw,4.2rem);color:#684b59;margin:14px 0}.section-heading p{color:#967f8a;margin:0 auto;max-width:590px}
+  .letter-section{background:linear-gradient(180deg,#fffdfd,#fff7fa)}
+  .letter-card{max-width:790px;margin:auto;padding:clamp(25px,5vw,54px);background:#fff;border:1px solid #f3dce5;border-radius:30px;box-shadow:var(--shadow);position:relative}
+  .letter-card:before{content:"“";position:absolute;right:25px;top:-24px;font-family:Georgia,serif;font-size:8rem;color:#f9d8e4;line-height:1}.letter-top{display:flex;align-items:center;gap:12px;color:#bb7d94;font-size:.8rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase;margin-bottom:20px}.letter-top span{width:35px;height:1px;background:#e7b4c7}.letter-card p{color:#806b75;font-size:1.03rem;position:relative}.letter-card .signoff{font-family:Georgia,serif;font-style:italic;font-size:1.45rem;color:#bd7892;margin-top:26px}
+  .compliments-section{background:#fffdfd}.compliment-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+  .compliment-card{padding:25px;border:1px solid #f1dfe6;background:#fff;border-radius:24px;min-height:205px;transition:transform .2s,box-shadow .2s}.compliment-card:hover{transform:translateY(-5px);box-shadow:var(--shadow)}.compliment-icon{width:45px;height:45px;display:grid;place-items:center;border-radius:16px;background:#ffedf3;font-size:1.45rem;margin-bottom:17px}.compliment-card:nth-child(2n) .compliment-icon{background:#f1ecff}.compliment-card:nth-child(3n) .compliment-icon{background:#eaf8ef}.compliment-card h3{color:#765666;font-size:1.15rem;margin:0 0 8px}.compliment-card p{font-size:.95rem;color:#927d86;margin:0}
+  .mini-note{margin-top:22px;text-align:center;color:#b17a91;font-style:italic}
+  .gallery-section{background:linear-gradient(180deg,#fff8fa,#fffdfd)}
+  .gallery-controls{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;margin:-18px 0 25px}.gallery-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));grid-auto-rows:175px;gap:13px}
+  .photo-slot{position:relative;border:1px dashed #e4b6c7;border-radius:22px;overflow:hidden;background:linear-gradient(140deg,#fff,#fff0f5);display:flex;align-items:center;justify-content:center;text-align:center;color:#b17c91;cursor:pointer;transition:transform .2s,border .2s;min-width:0}.photo-slot:nth-child(1),.photo-slot:nth-child(4){grid-column:span 2;grid-row:span 2}.photo-slot:nth-child(2),.photo-slot:nth-child(3),.photo-slot:nth-child(5){grid-column:span 2}.photo-slot:hover{transform:translateY(-3px);border-color:#ce86a2}.photo-slot img{width:100%;height:100%;object-fit:cover;display:block}.photo-slot .slot-placeholder{padding:15px}.slot-placeholder .slot-plus{font-size:2rem;display:block;margin-bottom:4px}.slot-placeholder strong{display:block;font-size:.9rem}.slot-placeholder small{font-size:.76rem;color:#c195a7}.photo-slot .photo-number{position:absolute;left:10px;top:10px;background:#ffffffdb;color:#9f6a80;border-radius:99px;padding:4px 9px;font-size:.72rem;font-weight:900;backdrop-filter:blur(5px)}.photo-remove{position:absolute;right:9px;top:9px;width:32px;height:32px;border:0;border-radius:50%;background:#fff;color:#a35e79;font-weight:900;box-shadow:0 4px 12px #6e394415}
+  .video-section{background:linear-gradient(180deg,#fffdfd,#fff5f8)}
+  .featured-video-card{max-width:900px;margin:0 auto 28px;padding:clamp(14px,3vw,24px);border:1px solid #f1dbe4;border-radius:28px;background:rgba(255,255,255,.92);box-shadow:var(--shadow)}
+  .featured-video-top{display:flex;justify-content:space-between;align-items:center;gap:15px;flex-wrap:wrap;margin:0 0 14px}
+  .video-kicker{font-size:.76rem;font-weight:900;letter-spacing:.13em;text-transform:uppercase;color:#bd7994}
+  .featured-video-top h3{font:400 clamp(1.45rem,3vw,2rem)/1.2 Georgia,serif;color:#704e5f;margin:3px 0}
+  .birthday-video{width:100%;display:block;aspect-ratio:16/9;background:#2d2028;border-radius:19px;object-fit:contain;max-height:540px}
+  .video-caption{color:#927b86;font-size:.92rem;margin:12px 3px 2px}
+  .video-library{max-width:1000px;margin:auto;padding:clamp(19px,3vw,29px);border:1px solid #f2dce5;border-radius:27px;background:#fff}
+  .video-library-head{display:flex;justify-content:space-between;align-items:center;gap:15px;flex-wrap:wrap;margin-bottom:16px}
+  .video-library-head h3{margin:0;color:#765666;font-size:1.25rem}
+  .video-library-head p{margin:3px 0 0;color:#9a828d;font-size:.9rem;max-width:580px}
+  .video-upload-actions{display:flex;gap:9px;align-items:center;flex-wrap:wrap}
+  .uploaded-video-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+  .uploaded-video-card{padding:10px;border:1px solid #f3dfe6;border-radius:21px;background:#fffafd;min-width:0}
+  .uploaded-video-card video{width:100%;aspect-ratio:16/9;display:block;background:#34252c;object-fit:contain;border-radius:14px}
+  .uploaded-video-title-row{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:9px 2px 1px}
+  .uploaded-video-title{font-size:.92rem;color:#765666;font-weight:850;overflow-wrap:anywhere}
+  .video-remove{flex-shrink:0;border:1px solid #f1d5df;background:#fff;color:#a66a83;border-radius:999px;padding:4px 10px;font-weight:900;cursor:pointer}
+  .video-empty{padding:19px;border:1px dashed #eacbd7;border-radius:18px;color:#a0828f;text-align:center;background:#fffafd}
+  .video-storage-note{font-size:.83rem;color:#a08591;margin:14px 0 0}
+  .birthday-song-status{color:#b56f8a;font-size:.95rem;font-weight:800;margin:10px 0 0;min-height:26px}
+  .birthday-lyrics{max-width:560px;margin:8px auto 0;color:#967786;font-family:Georgia,serif;font-style:italic;line-height:1.8}
+  .wish-section{padding-top:45px}.wish-box{max-width:830px;margin:auto;background:#fff1f6;border:1px solid #f4dce5;border-radius:30px;padding:clamp(25px,5vw,45px);display:grid;grid-template-columns:.85fr 1.15fr;gap:25px;align-items:center}.wish-art{font-size:5rem;text-align:center;animation:bob 3s ease-in-out infinite}.wish-box h2{font-size:clamp(2rem,4vw,3rem);color:#704e5f;margin:8px 0 10px}.wish-box p{color:#947784}.wish-form textarea{width:100%;min-height:112px;resize:vertical;padding:14px;border:1px solid #eac9d6;border-radius:17px;background:#fff;outline:none;color:var(--ink)}.wish-saved{color:#9b6178;font-weight:800;font-size:.9rem;min-height:24px;margin-top:8px}
+  .cake-section{background:radial-gradient(ellipse at 50% 30%,#fff1f6,transparent 55%),#fffafc;padding-bottom:100px}.cake-card{max-width:850px;margin:auto;text-align:center;background:rgba(255,255,255,.88);border:1px solid #f1dbe4;border-radius:32px;padding:clamp(24px,5vw,52px);box-shadow:var(--shadow);position:relative;overflow:hidden}.cake-card h2{font-size:clamp(2.4rem,5vw,4.4rem);color:#6d4d5b;margin:12px 0}.cake-card>p{max-width:570px;margin:0 auto;color:#927b86}.cake-stage{height:270px;display:grid;place-items:end center;position:relative;margin:15px 0 8px}.cake-ground{width:min(440px,80%);height:17px;background:#f3d6e1;border-radius:50%;position:absolute;bottom:27px;filter:blur(1px)}.cake{position:relative;width:220px;height:150px;margin-bottom:35px;z-index:2;filter:drop-shadow(0 12px 13px #c7819b25)}.cake-base{position:absolute;bottom:0;width:220px;height:83px;background:linear-gradient(90deg,#f2a8c1,#ffd0de 44%,#eda0bb);border-radius:12px 12px 18px 18px;border-bottom:8px solid #e796b2}.cake-base:before{content:"";position:absolute;top:0;left:0;width:100%;height:25px;border-radius:12px 12px 50% 50%;background:#fff2f6;border-bottom:5px solid #eaa9c0}.cake-top{position:absolute;bottom:70px;left:19px;width:182px;height:38px;border-radius:50%;background:#fff8fb;border:4px solid #f6cad9}.frosting-drip{position:absolute;bottom:54px;left:31px;width:18px;height:30px;border-radius:0 0 12px 12px;background:#fff2f6;box-shadow:30px 0 #fff2f6,63px 0 #fff2f6,99px 0 #fff2f6,133px 0 #fff2f6}.candle-row{position:absolute;bottom:104px;left:0;right:0;display:flex;justify-content:center;gap:18px;z-index:4}.candle{width:11px;height:43px;border-radius:4px 4px 2px 2px;background:repeating-linear-gradient(135deg,#fff 0 5px,#ee9fba 5px 10px);position:relative;border:1px solid #e69ab5}.flame{position:absolute;left:0;right:0;margin:auto;top:-22px;width:14px;height:21px;background:radial-gradient(ellipse at 50% 70%,#fff8ba 0 23%,#ffc56d 48%,#f58e8c 76%);border-radius:70% 30% 60% 40%;transform:rotate(5deg);box-shadow:0 0 17px #ffc7779e;animation:flame 1s ease-in-out infinite alternate;transform-origin:bottom}.flame.out{display:none}@keyframes flame{from{transform:rotate(-7deg) scale(.95)}to{transform:rotate(7deg) scale(1.05)}}.cake-deco{position:absolute;font-size:1.7rem;z-index:1}.cake-deco.d1{left:16%;top:35px}.cake-deco.d2{right:16%;top:54px}.cake-deco.d3{left:24%;bottom:49px}.cake-deco.d4{right:25%;bottom:55px}
+  .cake-actions{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:14px}.mic-note{font-size:.85rem!important;color:#ad8a98!important;margin-top:13px!important;min-height:24px}.cake-message{min-height:35px;color:#bc7591;font-family:Georgia,serif;font-style:italic;font-size:1.3rem;margin-top:16px}.candle-hit{position:absolute;inset:-22px -10px -5px;border:0;background:transparent;cursor:pointer;z-index:7}.footer{padding:28px 20px;text-align:center;background:#fff;border-top:1px solid #f5e5eb;color:#a18792;font-size:.84rem}.footer .footer-heart{color:#dd8ba8}
+  .toast{position:fixed;bottom:20px;left:50%;transform:translate(-50%,20px);opacity:0;background:#714f60;color:#fff;border-radius:99px;padding:11px 18px;box-shadow:var(--shadow);z-index:120;font-size:.9rem;font-weight:800;transition:all .25s;pointer-events:none;max-width:calc(100% - 32px);text-align:center}.toast.show{opacity:1;transform:translate(-50%,0)}
+  @media(max-width:780px){.uploaded-video-grid{grid-template-columns:1fr}.door-grid,.hero-inner{grid-template-columns:1fr}.door-copy{text-align:center}.door-copy p,.name-row{margin-left:auto;margin-right:auto}.door-art{min-height:290px;grid-row:1}.door-art .moon{width:230px}.door-art .bunny{transform:scale(.85)}.door-copy h1{font-size:clamp(2.7rem,12vw,4.4rem)}.hero{min-height:auto;padding:65px 20px 70px}.hero-copy{text-align:center}.hero-copy p{margin-left:auto;margin-right:auto}.hero-actions{justify-content:center}.hero-art{min-height:300px;grid-row:1}.hero-art .moon{width:260px}.hero-art .bunny{transform:scale(1)}.orbit{width:300px;height:300px}.compliment-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.gallery-grid{grid-auto-rows:145px}.nav-links{gap:12px}.nav-links a{font-size:.81rem}.nav-links a:not(.nav-cta){display:none}.wish-box{grid-template-columns:1fr;text-align:center}.wish-art{font-size:4rem}.section{padding:75px 18px}}
+  @media(max-width:480px){.adventure-top{font-size:.75rem}.door-card{padding:23px 17px}.bunny-grid{gap:7px}.hunt-tile{min-height:65px;font-size:1.7rem}.memory-grid{gap:7px}.memory-card{height:76px}.choice-stack{gap:9px}.choice-card{min-height:112px;padding:13px 8px;font-size:.92rem}.choice-card span{font-size:1.65rem}.game-stage{padding:13px}.game-head h2{font-size:2.15rem}.game-footer{justify-content:center}.game-status{width:100%;text-align:center}.compliment-grid{grid-template-columns:1fr}.compliment-card{min-height:0}.gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:150px;gap:9px}.photo-slot:nth-child(n){grid-column:span 1;grid-row:span 1}.photo-slot:nth-child(1){grid-column:span 2;grid-row:span 1}.cake{transform:scale(.88);transform-origin:bottom center}.cake-deco.d1{left:7%}.cake-deco.d2{right:7%}.nav-inner{width:calc(100% - 24px);min-height:64px}.site-logo{font-size:.9rem}.nav-cta{font-size:.78rem;padding:8px 10px!important}.site-nav .btn{padding:8px 10px}.hero-copy h1{font-size:3.1rem}.section-heading{margin-bottom:30px}}
+  @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}}
+</style>
+</head>
+<body>
+<div class="stars-bg"></div><div class="ambient one"></div><div class="ambient two"></div>
+
+<main id="adventure" aria-label="Birthday mini-game adventure">
+  <div class="adventure-wrap">
+    <div class="adventure-top"><div class="brand-mini">♡ THE LITTLE BIRTHDAY CLUB</div><div class="top-pill">🐰 made with love</div></div>
+    <section class="door-card" id="welcomePanel">
+      <div class="door-grid">
+        <div class="door-copy">
+          <span class="eyebrow">✧ your own tiny universe ✧</span>
+          <h1 class="serif">A little magic<br>for <em>your</em> day.</h1>
+          <p>Before the birthday surprise opens, there are a few tiny quests waiting for you. Collect some hearts, find the bunnies and bring your biggest 😝 energy.</p>
+          <div class="name-row"><label for="friendName">What should we call the birthday girl?</label><input id="friendName" maxlength="36" placeholder="Her name or nickname…" value="Angel" autocomplete="off"></div>
+          <button class="btn btn-primary" id="startAdventure">Let the birthday quests begin <span>♡</span></button>
+          <p style="font-size:.8rem;margin:13px 0 0;color:#b095a0">6 mini-games · about 5 minutes · maximum bunny energy</p>
+        </div>
+        <div class="door-art" aria-hidden="true"><span class="floating f1">♡</span><span class="floating f2">✦</span><span class="floating f3">🎀</span><div class="moon"><div class="bunny"><div class="ear left"></div><div class="ear right"></div><div class="bunny-face"><i class="eye left"></i><i class="eye right"></i><i class="nose"></i><i class="mouth"></i><i class="cheek left"></i><i class="cheek right"></i></div><div class="bow"><i></i></div></div></div></div>
+      </div>
+    </section>
+    <section id="gameZone" class="door-card hidden" aria-live="polite">
+      <div class="game-progress"><div class="progress-label"><span id="questCounter">LITTLE QUEST 01 / 06</span><span id="questPercent">0% complete</span></div><div class="progress-track"><div class="progress-fill" id="questProgress"></div></div></div>
+      <div class="game-panel" id="gamePanel"></div>
+    </section>
+    <section id="revealPanel" class="door-card hidden">
+      <div class="reveal-door"><div class="big-bow">🎀</div><span class="eyebrow">quest complete · surprise unlocked</span><h2 class="serif">You found the magic!</h2><p>Every little quest is done. Now open the tiny birthday universe made just for you — there are kind words, favourite memories and one very important cake waiting inside. 😝</p><button id="openBirthday" class="btn btn-primary">Open my birthday universe ♡</button></div>
+    </section>
+  </div>
+</main>
+
+<div id="birthdaySite">
+  <nav class="site-nav"><div class="nav-inner"><a class="site-logo" href="#home" style="text-decoration:none"><span class="logo-bunny">🐰</span><span>a tiny universe <span style="color:#d58aa5">♡</span></span></a><div class="nav-links"><a href="#letter">Your letter</a><a href="#kind-words">Kind words</a><a href="#gallery">Memories</a><a href="#videos">Videos</a><a href="#wish">A wish</a><a class="nav-cta" href="#cake">The cake 🎂</a></div></div></nav>
+  <section class="hero" id="home"><span class="hero-floating hf1">🎀</span><span class="hero-floating hf2">♡</span><span class="hero-floating hf3">✦</span>
+    <div class="hero-inner"><div class="hero-copy"><span class="eyebrow">a little website made with lots of love</span><h1 class="serif">Happy Birthday,<span class="name-highlight" id="heroName">Angel!</span></h1><p>Today is your reminder that the world is a little brighter, a little funnier and a whole lot sweeter because you're in it. So this tiny corner of the internet? It's all yours. 🤍</p><div class="hero-actions"><a class="btn btn-primary" href="#letter">Read your little letter ♡</a><a class="btn btn-soft" href="#gallery">Skip to the memories ↗</a><a class="btn btn-cream" href="#videos">Add your video 🎞️</a></div></div>
+    <div class="hero-art" aria-hidden="true"><div class="orbit"></div><span class="floating f1">✧</span><span class="floating f2">💗</span><span class="floating f3">😝</span><div class="moon"><div class="bunny"><div class="ear left"></div><div class="ear right"></div><div class="bunny-face"><i class="eye left"></i><i class="eye right"></i><i class="nose"></i><i class="mouth"></i><i class="cheek left"></i><i class="cheek right"></i></div><div class="bow"><i></i></div></div></div></div></div>
+    <div class="scroll-note">scroll slowly, birthday girl ↓</div>
+  </section>
+  <div class="ticker"><div class="ticker-track"><span>♡ YOU DESERVE THE SOFTEST DAYS</span><span>✦ MORE LAUGHTER, ALWAYS</span><span>🐰 LITTLE THINGS, BIG LOVE</span><span>😝 KEEP BEING YOUR SILLY SELF</span><span>♡ YOU DESERVE THE SOFTEST DAYS</span></div></div>
+  <section class="section letter-section" id="letter"><div class="section-inner"><div class="section-heading"><span class="eyebrow">open when you need a smile</span><h2 class="serif">A little note, just for you.</h2><p>Not a fancy speech. Just a few words for someone who deserves to hear them.</p></div><article class="letter-card"><div class="letter-top"><span></span> a note from your person <span></span></div><p>Dear <strong class="name-inline">Angel</strong>,</p><p>Happy birthday to one of those people who can make an ordinary moment feel fun just by being there. I hope you know how special your energy is — the jokes, the random silliness, the playful 😝 moments and the way you can make people smile without even trying.</p><p>You have such a good nature. You care, you help, you support people and you show up in ways that matter. Those things might feel small to you, but they can mean a whole lot to someone else. Never think you have to be anything other than the person you already are to be appreciated.</p><p>For this new year of your life, I hope you get gentle mornings, loud laughs, happy surprises, people who choose you back, dreams that come closer and so many reasons to feel proud of yourself. I hope you keep your beautiful heart while learning to save some kindness for yourself, too.</p><p>Stay funny. Stay kind. Stay a little chaotic. Keep being your cheerful, playful self — the world needs more people who bring this kind of light. And whenever you forget how wonderful you are, come back here and borrow a reminder. 🤍</p><p class="signoff">Happy birthday, you lovely little human. ♡</p></article></div></section>
+  <section class="section compliments-section" id="kind-words"><div class="section-inner"><div class="section-heading"><span class="eyebrow">things worth remembering</span><h2 class="serif">In case nobody told you today…</h2><p>These aren't just birthday compliments. They're little reminders you can keep long after the candles are gone.</p></div><div class="compliment-grid">
+    <article class="compliment-card"><div class="compliment-icon">😝</div><h3>Your funny little soul</h3><p>You know how to make a moment lighter. Your playful side is a gift, and your laugh deserves to be heard often.</p></article>
+    <article class="compliment-card"><div class="compliment-icon">🤍</div><h3>A genuinely good heart</h3><p>Your good nature shows in how you treat people. Kindness looks lovely on you — never let the world take that away.</p></article>
+    <article class="compliment-card"><div class="compliment-icon">🫶</div><h3>The helpful one</h3><p>You try to be there for people, and that matters more than you may realise. The care you give leaves a mark.</p></article>
+    <article class="compliment-card"><div class="compliment-icon">🌷</div><h3>Supportive by nature</h3><p>You can make someone feel less alone just by listening, encouraging them or reminding them they can do it.</p></article>
+    <article class="compliment-card"><div class="compliment-icon">☀️</div><h3>A cheerful kind of magic</h3><p>You bring warmth and lively energy with you. Even the everyday stuff feels a little brighter around you.</p></article>
+    <article class="compliment-card"><div class="compliment-icon">🐰</div><h3>Soft heart, silly energy</h3><p>You're a sweet mix of caring and chaotic — soft, fun, genuine, and wonderfully yourself. That combination is so you.</p></article>
+  </div><p class="mini-note">And just for the record: you're allowed to have quiet days, too. You don't need to be cheerful all the time to be loved. ♡</p></div></section>
+  <section class="section gallery-section" id="gallery"><div class="section-inner"><div class="section-heading"><span class="eyebrow">little moments, forever favourites</span><h2 class="serif">Our memory corner.</h2><p>Put your favourite birthday pictures here — selfies, silly faces, cute moments, cake photos, all of it. This gallery stays on this device in this browser.</p></div><div class="gallery-controls"><button class="btn btn-primary" id="addPhotos">＋ Add 3–5 photos</button><button class="btn btn-soft btn-small" id="clearPhotos">Clear gallery</button><input class="hidden" type="file" id="photoInput" accept="image/*" multiple /></div><div class="gallery-grid" id="galleryGrid" aria-label="Birthday photo gallery"></div><p class="mini-note">Tip: tap an empty frame to add a photo. Choose up to 5 pictures. Your files aren't uploaded to a server.</p></div></section>
+  <section class="section video-section" id="videos"><div class="section-inner"><div class="section-heading"><span class="eyebrow">moving memories ♡</span><h2 class="serif">Little videos, big memories.</h2><p>Choose your own video from your device and make it the featured birthday memory. You can add more clips to the shelf below, too. Videos are not sent to a server. 🎀</p></div>
+    <div class="featured-video-card"><div class="featured-video-top"><div><div class="video-kicker">♡ your personal video slot</div><h3 id="featuredVideoTitle">Add a birthday video for Angel</h3></div><div class="video-upload-actions"><button class="btn btn-primary btn-small" id="chooseFeaturedVideo">＋ Choose featured video</button><button class="btn btn-soft btn-small hidden" id="removeFeaturedVideo">Remove video</button><input class="hidden" type="file" id="featuredVideoInput" accept="video/*" /></div></div><div class="video-empty" id="featuredVideoEmpty">🐰 Your featured video goes here.<br><span style="font-size:.9rem">Tap “Choose featured video” and select an MP4 or another video from your device.</span></div><video class="birthday-video hidden" id="featuredBirthdayVideo" controls playsinline preload="metadata">Your browser does not support HTML video.</video><p class="video-caption" id="featuredVideoCaption">Choose a clip from your device. It stays saved in this browser on this device. 🤍</p></div>
+    <div class="video-library"><div class="video-library-head"><div><h3>Your video shelf 🎞️</h3><p>Add extra video memories. They stay available in this browser on this device.</p></div><div class="video-upload-actions"><button class="btn btn-primary btn-small" id="addVideos">＋ Add videos</button><input class="hidden" type="file" id="videoInput" accept="video/*" multiple /></div></div><div class="uploaded-video-grid" id="uploadedVideosGrid"></div><p class="video-storage-note" id="videoLibraryStatus" aria-live="polite">Choose a featured video above, or add extra clips to your shelf. Videos are saved in this browser, not uploaded to a public server.</p></div>
+  </div></section>
+  <section class="section wish-section" id="wish"><div class="section-inner"><div class="wish-box"><div><div class="wish-art" aria-hidden="true">💌</div><span class="eyebrow">make a tiny wish</span><h2 class="serif">Tell the universe.</h2><p>Write one thing you're wishing for this year. It can be a big dream or a small, happy thing.</p></div><div class="wish-form"><label for="wishText" style="display:block;margin-bottom:8px;color:#8d6678;font-weight:900">My birthday wish is…</label><textarea id="wishText" placeholder="This year, I hope I…"></textarea><div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:10px"><button class="btn btn-primary btn-small" id="saveWish">Keep this wish ♡</button><button class="btn btn-soft btn-small" id="clearWish">Start again</button></div><div class="wish-saved" id="wishSaved" aria-live="polite"></div></div></div></div></section>
+  <section class="section cake-section" id="cake"><div class="section-inner"><div class="section-heading"><span class="eyebrow">the most important part</span><h2 class="serif">One cake. All your wishes.</h2><p>Close your eyes for a second, think of something wonderful, then blow out the candles. Your wish is between you and the universe. ✨</p></div><div class="cake-card"><div class="cake-deco d1">✦</div><div class="cake-deco d2">♡</div><div class="cake-deco d3">🐰</div><div class="cake-deco d4">🎀</div><div class="cake-stage"><div class="cake-ground"></div><div class="cake" id="cakeIllustration"><div class="cake-base"></div><div class="cake-top"></div><div class="frosting-drip"></div><div class="candle-row" id="candleRow"><div class="candle"><span class="flame"></span><button class="candle-hit" aria-label="Blow out candle 1" title="Tap to blow out this candle" data-candle="0"></button></div><div class="candle"><span class="flame"></span><button class="candle-hit" aria-label="Blow out candle 2" title="Tap to blow out this candle" data-candle="1"></button></div><div class="candle"><span class="flame"></span><button class="candle-hit" aria-label="Blow out candle 3" title="Tap to blow out this candle" data-candle="2"></button></div><div class="candle"><span class="flame"></span><button class="candle-hit" aria-label="Blow out candle 4" title="Tap to blow out this candle" data-candle="3"></button></div><div class="candle"><span class="flame"></span><button class="candle-hit" aria-label="Blow out candle 5" title="Tap to blow out this candle" data-candle="4"></button></div></div></div></div><h3 class="serif" style="font-size:1.6rem;color:#8d5e74;margin:0">Make a wish, <span class="name-inline">Angel</span>! ♡</h3><div class="cake-actions"><button class="btn btn-primary" id="micBlow">🎤 Blow with your breath</button><button class="btn btn-soft" id="tapBlow">✨ No mic? blow them out</button><button class="btn btn-cream btn-small" id="relight">Light them again</button><button class="btn btn-soft btn-small hidden" id="playSongAgain">🎵 Play birthday song again</button></div><p class="mic-note" id="micNote" aria-live="polite">Microphone mode asks permission and listens briefly for a puff of air. Nothing is recorded or uploaded.</p><div class="cake-message" id="cakeMessage" aria-live="polite"></div><p class="birthday-song-status" id="songStatus" aria-live="polite"></p><p class="birthday-lyrics hidden" id="birthdayLyrics">Happy birthday to you ♡<br />Happy birthday to you ♡<br />Happy birthday, dear Angel ♡<br />Happy birthday to you! 🎂</p></div></div></section>
+  <footer class="footer">Made with extra sprinkles, soft pinks and a whole lot of love <span class="footer-heart">♡</span><br><span style="font-size:.75rem">A little reminder: you matter, today and every day.</span></footer>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script>
+(() => {
+  'use strict';
+  const $ = (s, root=document) => root.querySelector(s);
+  const $$ = (s, root=document) => [...root.querySelectorAll(s)];
+  const STORAGE = {name:'littleBirthdayName_v2', photos:'littleBirthdayPhotos_v1', wish:'littleBirthdayWish_v1'};
+  let friendName = localStorage.getItem(STORAGE.name) || 'Angel';
+  let currentQuest = 0;
+  let questStates = {};
+  let memoryOpen = [], memoryMatched = new Set(), memoryLock = false;
+  let heartCount = 0;
+  let qualitySelected = new Set();
+  let puzzleRound = 0, puzzleAnswer = [], puzzleLetters = [];
+  let photos = [];
+  let micStream = null, audioContext = null, micRaf = null, micStartedAt = 0, micAboveSince = 0;
+  let toastTimer;
+
+  const games = [
+    {label:'Bunny hunt', title:'Find the fluffy five.', desc:'Five little bunnies are hiding in this garden. Tap each bunny you find — leave the flowers and sweets for later. 🐰'},
+    {label:'Memory meadow', title:'Match the cute things.', desc:'Flip two cards at a time and find all six matching pairs. A tiny memory test, with a lot of pink.'},
+    {label:'Birthday energy', title:'Pick your happy little vibe.', desc:'Four quick this-or-that choices. No wrong answers — just choose what feels most like your birthday mood. 😝'},
+    {label:'Heart catcher', title:'Catch a handful of love.', desc:'Tap 7 floating hearts before the little timer runs out. Ready, set, HEARTS!'},
+    {label:'Your sparkle', title:'Choose your kind of magic.', desc:'Pick the three qualities you want to carry into this new year. Your little reminder will appear after you choose.'},
+    {label:'Word confetti', title:'Put the letters in order.', desc:'Three tiny birthday words have been jumbled. Tap the letters in the right order to untangle them.'}
+  ];
+
+  function showToast(message){const t=$('#toast');t.textContent=message;t.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>t.classList.remove('show'),2500)}
+  function burst(amount=34){for(let i=0;i<amount;i++){const el=document.createElement('i');el.className='confetti';el.style.left=Math.random()*100+'vw';el.style.background=['#f3a9c1','#ffdfeb','#e7d9ff','#fff0b7','#ccebd7'][Math.floor(Math.random()*5)];el.style.animationDelay=(Math.random()*.45)+'s';el.style.animationDuration=(1.6+Math.random()*1.3)+'s';el.style.width=(5+Math.random()*6)+'px';el.style.height=(8+Math.random()*9)+'px';document.body.appendChild(el);setTimeout(()=>el.remove(),3300)}}
+  function normalizedName(){return friendName.trim() || 'Angel'}
+  function refreshName(){friendName=($('#friendName')?.value || friendName || 'Angel').trim() || 'Angel';localStorage.setItem(STORAGE.name,friendName);$('#heroName').textContent=friendName+'!';$$('.name-inline').forEach(el=>el.textContent=friendName)}
+  $('#startAdventure').addEventListener('click',()=>{friendName=$('#friendName').value.trim()||'Angel';refreshName();$('#welcomePanel').classList.add('hidden');$('#gameZone').classList.remove('hidden');currentQuest=0;questStates={};renderQuest();window.scrollTo({top:0,behavior:'smooth'})});
+  $('#friendName').addEventListener('keydown',e=>{if(e.key==='Enter')$('#startAdventure').click()});
+
+  function updateQuestProgress(){const done=Object.keys(questStates).length;$('#questCounter').textContent=`LITTLE QUEST ${String(Math.min(currentQuest+1,6)).padStart(2,'0')} / 06`;$('#questPercent').textContent=`${Math.round(done/6*100)}% complete`;$('#questProgress').style.width=(done/6*100)+'%'}
+  function questShell(index,content){const g=games[index];return `<div class="game-head"><div class="mini-label">✧ ${g.label} ✧</div><h2 class="serif">${g.title}</h2><p>${g.desc}</p></div>${content}`}
+  function questFooter(status,buttonLabel='Continue ♡',disabled=true){return `<div class="game-footer"><div class="game-status" id="gameStatus">${status}</div><button class="btn btn-primary" id="questNext" ${disabled?'disabled style="opacity:.45;cursor:not-allowed"':''}>${buttonLabel}</button></div>`}
+  function enableNext(){const b=$('#questNext');if(b){b.disabled=false;b.style.opacity='1';b.style.cursor='pointer'}}
+  function renderQuest(){updateQuestProgress();const panel=$('#gamePanel');panel.innerHTML='';panel.classList.remove('game-panel');void panel.offsetWidth;panel.classList.add('game-panel');
+    if(currentQuest===0)renderBunnyHunt(panel);
+    if(currentQuest===1)renderMemory(panel);
+    if(currentQuest===2)renderChoices(panel);
+    if(currentQuest===3)renderHearts(panel);
+    if(currentQuest===4)renderQualities(panel);
+    if(currentQuest===5)renderWords(panel);
+  }
+  function completeQuest(){questStates[currentQuest]=true;updateQuestProgress();burst(18);if(currentQuest<5){currentQuest++;renderQuest();}else{updateQuestProgress();$('#gameZone').classList.add('hidden');$('#revealPanel').classList.remove('hidden');burst(55)}window.scrollTo({top:0,behavior:'smooth'})}
+
+  function renderBunnyHunt(panel){
+    // The targets live in this local array only. The button faces show garden decorations,
+    // so the player cannot see where the five bunnies are before tapping.
+    const gardenItems=['🐰','🌷','🍰','🐇','💗','🎀','🍓','⭐','🐰','☁️','🧁','🐰','🌸','🎀','🍓','🐇'];
+    const shuffle=arr=>{const copy=[...arr];for(let i=copy.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[copy[i],copy[j]]=[copy[j],copy[i]];}return copy;};
+    const shuffled=shuffle(gardenItems.map(emoji=>({emoji,isBunny:emoji==='🐰'||emoji==='🐇'})));
+    const coverFaces=shuffle(['🌸','🌷','🎀','✨','🌸','🌷','☁️','💗','🌸','🌷','🎀','✨','🌸','🌷','☁️','💗']);
+    const totalBunnies=shuffled.filter(item=>item.isBunny).length;
+    panel.innerHTML=questShell(0,`<div class="game-stage">
+      <div class="bunny-hunt-meta"><div class="bunny-score-pill">🐰 Bunnies found: <strong id="bunnyScore">0</strong> / ${totalBunnies}</div><div class="bunny-helper">Tap a garden patch to peek underneath.</div></div>
+      <div class="bunny-grid" id="bunnyGrid">${shuffled.map((item,i)=>`<button type="button" class="hunt-tile covered" data-index="${i}" aria-label="Mystery garden patch ${i+1}">${coverFaces[i]}</button>`).join('')}</div>
+      ${questFooter('Find all five fluffy friends hidden around the garden. ♡','Next little quest →')}
+    </div>`);
+
+    let found=0;
+    const tiles=$$('.hunt-tile',panel);
+    tiles.forEach((tile,i)=>tile.addEventListener('click',()=>{
+      if(tile.disabled||tile.classList.contains('found'))return;
+      const item=shuffled[i];
+      if(item.isBunny){
+        tile.classList.remove('covered');
+        tile.classList.add('found');
+        tile.disabled=true;
+        tile.textContent=item.emoji;
+        tile.setAttribute('aria-label',`Bunny found at garden patch ${i+1}`);
+        found++;
+        $('#bunnyScore').textContent=String(found);
+        if(found===totalBunnies){
+          $('#gameStatus').textContent='All five fluffy friends found! You did it. ♡';
+          enableNext();
+        }else{
+          $('#gameStatus').textContent=`${found} of ${totalBunnies} bunnies found. Keep exploring! ♡`;
+        }
+      }else{
+        tile.classList.add('wrong');
+        tile.disabled=true;
+        tile.textContent=item.emoji;
+        tile.setAttribute('aria-label',`A little garden surprise at patch ${i+1}`);
+        $('#gameStatus').textContent='Not a bunny this time — keep looking! 😝';
+        window.setTimeout(()=>{
+          if(!tile.isConnected||tile.classList.contains('found'))return;
+          tile.classList.remove('wrong');
+          tile.classList.add('covered');
+          tile.textContent=coverFaces[i];
+          tile.disabled=false;
+          tile.setAttribute('aria-label',`Mystery garden patch ${i+1}`);
+        },650);
+      }
+    }));
+    $('#questNext',panel).addEventListener('click',()=>{if(found===totalBunnies)completeQuest()});
+  }
+
+  function renderMemory(panel){const faces=['🎀','🐰','🍓','🧁','💗','🌷'];const deck=[...faces,...faces].sort(()=>Math.random()-.5);memoryOpen=[];memoryMatched=new Set();memoryLock=false;
+    panel.innerHTML=questShell(1,`<div class="game-stage"><div class="memory-grid" id="memoryGrid">${deck.map((face,i)=>`<button class="memory-card" data-index="${i}" data-face="${face}" aria-label="Hidden memory card ${i+1}">?</button>`).join('')}</div>${questFooter('Pairs found: <strong id="pairScore">0</strong> / 6','Next little quest →')}</div>`);
+    const cards=$$('.memory-card',panel);cards.forEach(card=>card.addEventListener('click',()=>{if(memoryLock||card.classList.contains('matched')||card.classList.contains('revealed'))return;card.classList.add('revealed');card.textContent=card.dataset.face;memoryOpen.push(card);if(memoryOpen.length===2){const [a,b]=memoryOpen;if(a.dataset.face===b.dataset.face){a.classList.remove('revealed');b.classList.remove('revealed');a.classList.add('matched');b.classList.add('matched');a.disabled=b.disabled=true;memoryMatched.add(a.dataset.index);memoryMatched.add(b.dataset.index);$('#pairScore').textContent=memoryMatched.size/2;$('#gameStatus').innerHTML=`Pairs found: <strong id="pairScore">${memoryMatched.size/2}</strong> / 6${memoryMatched.size===12?' · memory master!':''}`;memoryOpen=[];if(memoryMatched.size===12)enableNext()}else{memoryLock=true;setTimeout(()=>{[a,b].forEach(c=>{c.classList.remove('revealed');c.textContent='?'});memoryOpen=[];memoryLock=false},750)}}}));$('#questNext',panel).addEventListener('click',()=>{if(memoryMatched.size===12)completeQuest()});
+  }
+  function renderChoices(panel){const data=[{q:'Pick a birthday mood',a:['Soft & cozy','Cute & chaotic'],icons:['🧸','😝']},{q:'Your perfect treat',a:['Strawberry cake','Pink cupcakes'],icons:['🍓','🧁']},{q:'Choose your vibe',a:['Bunny in a garden','Sparkles everywhere'],icons:['🐰','✨']},{q:'Birthday wish energy',a:['Big dreamy plans','Little happy moments'],icons:['🌙','🌷']}];let step=0,chosen=[];
+    const draw=()=>{const d=data[step];panel.innerHTML=questShell(2,`<div class="game-stage"><div style="text-align:center;color:#be8399;font-weight:900;font-size:.85rem;margin-bottom:13px">PICK ${step+1} OF 4</div><div style="text-align:center;font-family:Georgia,serif;font-size:1.5rem;color:#7b596a;margin-bottom:16px">${d.q}</div><div class="choice-stack">${d.a.map((x,i)=>`<button class="choice-card" data-choice="${i}"><span>${d.icons[i]}</span>${x}</button>`).join('')}</div>${questFooter(step===3?'Four vibes, four little smiles.':'No wrong answers — pick the one you love.','Next little quest →',true)}</div>`);$$('.choice-card',panel).forEach(btn=>btn.addEventListener('click',()=>{if(btn.classList.contains('chosen'))return;$$('.choice-card',panel).forEach(b=>{b.classList.remove('chosen');b.disabled=true});btn.classList.add('chosen');chosen.push(d.a[Number(btn.dataset.choice)]);$('#gameStatus').textContent='Cute choice! Your birthday vibe is taking shape. ♡';enableNext()}));$('#questNext',panel).addEventListener('click',()=>{if(!$('.choice-card.chosen',panel))return;if(step<3){step++;draw()}else completeQuest()})};draw();
+  }
+  function renderHearts(panel){
+    heartCount=0;let time=28;let timer=null;let done=false;
+    panel.innerHTML=questShell(3,`<div class="game-stage"><div style="display:flex;justify-content:space-between;gap:12px;margin-bottom:10px;color:#a2788b;font-weight:900"><span>💗 Caught: <strong id="heartScore">0</strong> / 7</span><span>⏱ <strong id="heartTimer">28</strong>s</span></div><div class="catch-zone" id="catchZone" aria-label="Tap the moving hearts"></div>${questFooter('Tap the floating hearts. You can do it!','Next little quest →')}</div>`);
+    const zone=$('#catchZone');
+    function spawn(){
+      if(done||heartCount>=7)return;
+      const h=document.createElement('button');h.className='catch-heart';h.textContent=['💗','💖','💕','💘'][Math.floor(Math.random()*4)];h.setAttribute('aria-label','Catch heart');h.style.left=(4+Math.random()*82)+'%';h.style.top=(5+Math.random()*70)+'%';h.style.animationDelay=(-Math.random()*2)+'s';
+      h.addEventListener('click',()=>{if(done)return;heartCount++;$('#heartScore').textContent=heartCount;h.remove();if(heartCount>=7){done=true;clearInterval(timer);zone.innerHTML='<div style="position:absolute;inset:0;display:grid;place-items:center;text-align:center;color:#a36580;font-size:1.3rem;font-weight:900">You caught a whole pocketful of love! 💗✨</div>';$('#gameStatus').textContent='All 7 hearts caught. You are loved, just so you know.';enableNext()}else{$('#gameStatus').textContent='One more little heart of love!';spawn()}});
+      zone.appendChild(h);
+      setTimeout(()=>{if(h.isConnected&&!done){h.remove();spawn()}},3600);
+    }
+    function startTimer(){clearInterval(timer);timer=setInterval(()=>{time--;$('#heartTimer').textContent=time;if(time<=0){clearInterval(timer);if(done)return;time=28;$('#heartTimer').textContent=time;zone.innerHTML='';$('#gameStatus').textContent='Fresh hearts! Keep going — there is no failing this birthday quest. ♡';for(let i=0;i<3;i++)spawn();startTimer()}},1000)}
+    for(let i=0;i<3;i++)spawn();startTimer();
+    $('#questNext',panel).addEventListener('click',()=>{if(heartCount>=7){clearInterval(timer);done=true;completeQuest()}});
+  }
+  function renderQualities(panel){const options=[['Funny','😝'],['Kind-hearted','🤍'],['Brave','🦋'],['Supportive','🫶'],['Playful','🎀'],['Confident','✨'],['Curious','🌷'],['Peaceful','☁️']];qualitySelected=new Set();panel.innerHTML=questShell(4,`<div class="game-stage"><p style="text-align:center;color:#927b86;margin:0 0 18px">Pick <strong>three</strong> qualities for your new chapter. A tiny celebration of the things that make you, YOU.</p><div class="quality-grid">${options.map(([name,icon])=>`<button class="quality-chip" data-quality="${name}">${icon} ${name}</button>`).join('')}</div><div style="text-align:center;margin-top:20px;color:#a3798c;font-weight:900"><span id="qualityCount">0</span> / 3 chosen</div><div id="qualityReveal" class="hidden" style="text-align:center;max-width:520px;margin:23px auto 0;padding:18px;border-radius:18px;background:#fff;border:1px solid #f1d9e3;color:#8e6074">Your new year looks good already — keep those qualities close, and let yourself grow in every way that feels right. ♡</div>${questFooter('Choose any three qualities you want to celebrate.','Next little quest →')}</div>`);$$('.quality-chip',panel).forEach(btn=>btn.addEventListener('click',()=>{const q=btn.dataset.quality;if(qualitySelected.has(q)){qualitySelected.delete(q);btn.classList.remove('selected')}else if(qualitySelected.size<3){qualitySelected.add(q);btn.classList.add('selected')}$('#qualityCount').textContent=qualitySelected.size;if(qualitySelected.size===3){$('#qualityReveal').classList.remove('hidden');$('#gameStatus').textContent='A lovely little trio — just like you. ♡';enableNext()}else{$('#qualityReveal').classList.add('hidden');$('#gameStatus').textContent=`Choose ${3-qualitySelected.size} more quality${3-qualitySelected.size===1?'':'ies'}.`}}));$('#questNext',panel).addEventListener('click',()=>{if(qualitySelected.size===3)completeQuest()});
+  }
+  const wordRounds=[{word:'BUNNY',hint:'A fluffy friend with long ears 🐰'},{word:'SMILE',hint:'Something your face should get lots of today ☀️'},{word:'CAKE',hint:'The reason we saved room for dessert 🎂'}];
+  function renderWords(panel){puzzleRound=0;drawWordRound(panel)}
+  function drawWordRound(panel){const item=wordRounds[puzzleRound];const letters=item.word.split('').sort(()=>Math.random()-.5);puzzleLetters=letters;puzzleAnswer=[];panel.innerHTML=questShell(5,`<div class="game-stage"><div class="word-puzzle"><div style="color:#ae7790;font-weight:900;font-size:.8rem;letter-spacing:.13em">WORD ${puzzleRound+1} OF 3</div><div style="font-weight:800;color:#927985;margin-top:8px">${item.hint}</div><div class="scramble-word">${letters.join(' · ')}</div><div class="answer-slots" id="answerSlots">${item.word.split('').map((_,i)=>`<div class="answer-slot" data-slot="${i}"></div>`).join('')}</div><div class="letter-row" id="letterRow">${letters.map((letter,i)=>`<button class="letter-btn" data-letter-index="${i}">${letter}</button>`).join('')}</div><button class="btn btn-soft btn-small" id="undoLetters">↶ Undo last letter</button><div id="wordFeedback" style="min-height:28px;margin-top:12px;color:#a76d86;font-weight:900"></div></div>${questFooter('Tap the letters in the correct order.','Next little quest →')}</div>`);const slots=$$('.answer-slot',panel);const letterBtns=$$('.letter-btn',panel);function redraw(){slots.forEach((slot,i)=>slot.textContent=puzzleAnswer[i]?.letter||'');letterBtns.forEach((btn,i)=>btn.disabled=puzzleAnswer.some(x=>x.index===i));}
+    letterBtns.forEach((btn,i)=>btn.addEventListener('click',()=>{if(puzzleAnswer.length>=item.word.length)return;puzzleAnswer.push({letter:letters[i],index:i});redraw();if(puzzleAnswer.length===item.word.length){const answer=puzzleAnswer.map(x=>x.letter).join('');if(answer===item.word){$('#wordFeedback').textContent=puzzleRound<2?'Perfect! One more word. ♡':'All untangled — birthday genius! 🎉';$('#gameStatus').textContent='Correct! Every little letter found its place.';if(puzzleRound===2)enableNext();else setTimeout(()=>{puzzleRound++;drawWordRound(panel)},850)}else{$('#wordFeedback').textContent='Almost! Tap undo and give it another try.';$('#gameStatus').textContent='A little mix-up — you can fix it!';}}}));$('#undoLetters',panel).addEventListener('click',()=>{puzzleAnswer.pop();$('#wordFeedback').textContent='';redraw()});$('#questNext',panel).addEventListener('click',()=>{if(puzzleRound===2&&puzzleAnswer.map(x=>x.letter).join('')===item.word)completeQuest()});
+  }
+  $('#openBirthday').addEventListener('click',()=>{refreshName();$('#adventure').classList.add('hidden');$('#birthdaySite').style.display='block';$('#heroName').textContent=friendName+'!';$$('.name-inline').forEach(el=>el.textContent=friendName);loadPhotos();$('#wishText').value=localStorage.getItem(STORAGE.wish)||'';window.scrollTo({top:0,behavior:'instant'});burst(65)});
+
+  // Gallery: resize and compress chosen photos before saving locally.
+  function readPhotos(){try{return JSON.parse(localStorage.getItem(STORAGE.photos)||'[]')}catch{return []}}
+  function loadPhotos(){photos=readPhotos().slice(0,5);renderPhotos()}
+  function renderPhotos(){const grid=$('#galleryGrid');grid.innerHTML='';for(let i=0;i<5;i++){const p=photos[i];const slot=document.createElement('button');slot.type='button';slot.className='photo-slot';slot.setAttribute('aria-label',p?`Birthday photo ${i+1}. Tap to replace`:`Add birthday photo ${i+1}`);if(p){const img=document.createElement('img');img.src=p.data;img.alt=p.name||`Birthday memory ${i+1}`;slot.appendChild(img);const num=document.createElement('span');num.className='photo-number';num.textContent=`MEMORY 0${i+1}`;slot.appendChild(num);const rem=document.createElement('span');rem.className='photo-remove';rem.textContent='×';rem.setAttribute('role','button');rem.setAttribute('aria-label',`Remove photo ${i+1}`);rem.addEventListener('click',e=>{e.stopPropagation();photos.splice(i,1);persistPhotos();renderPhotos();showToast('Photo removed from this gallery.')});slot.appendChild(rem)}else{slot.innerHTML=`<span class="slot-placeholder"><span class="slot-plus">＋</span><strong>Add a memory</strong><small>photo ${i+1} of 5</small></span>`}slot.addEventListener('click',()=>{window.currentPhotoSlot=i;$('#photoInput').click()});grid.appendChild(slot)}}
+  function persistPhotos(){try{localStorage.setItem(STORAGE.photos,JSON.stringify(photos));return true}catch(e){showToast('That photo was a little too large. Try a smaller image.');return false}}
+  function compressImage(file){return new Promise((resolve,reject)=>{const reader=new FileReader();reader.onerror=reject;reader.onload=()=>{const img=new Image();img.onerror=reject;img.onload=()=>{const max=1400;const scale=Math.min(1,max/Math.max(img.width,img.height));const canvas=document.createElement('canvas');canvas.width=Math.max(1,Math.round(img.width*scale));canvas.height=Math.max(1,Math.round(img.height*scale));const ctx=canvas.getContext('2d');ctx.fillStyle='#ffffff';ctx.fillRect(0,0,canvas.width,canvas.height);ctx.drawImage(img,0,0,canvas.width,canvas.height);resolve(canvas.toDataURL('image/jpeg',.78))};img.src=reader.result};reader.readAsDataURL(file)})}
+  $('#addPhotos').addEventListener('click',()=>{window.currentPhotoSlot=photos.length;$('#photoInput').click()});$('#photoInput').addEventListener('change',async e=>{const files=[...e.target.files].filter(f=>f.type.startsWith('image/'));if(!files.length)return;const slot=Number.isInteger(window.currentPhotoSlot)?window.currentPhotoSlot:null;window.currentPhotoSlot=null;const replaceFirst=slot!==null&&slot<photos.length;const room=replaceFirst?1+(5-photos.length):5-photos.length;if(room<=0){showToast('Your gallery is full — remove a photo first.');e.target.value='';return}const selected=files.slice(0,room);if(files.length>room)showToast(`Only ${room} photo(s) fit in the 5-frame gallery.`);let added=0;for(let i=0;i<selected.length;i++){const file=selected[i];try{const data=await compressImage(file);if(i===0&&replaceFirst){const old=photos[slot];photos[slot]={data,name:file.name};if(!persistPhotos()){photos[slot]=old;break}}else{photos.push({data,name:file.name});if(!persistPhotos()){photos.pop();break}}added++}catch(err){showToast('Could not read one of those images. Try another photo.')}}renderPhotos();if(added)showToast(`${added} photo${added===1?'':'s'} added to your memory corner ♡`);e.target.value=''});
+  $('#clearPhotos').addEventListener('click',()=>{if(photos.length===0){showToast('Your gallery is already empty.');return}photos=[];persistPhotos();renderPhotos();showToast('Gallery cleared. Add new favourites any time.')});
+
+  // Video gallery: uploaded video blobs are stored persistently in IndexedDB on this device/browser.
+  // Featured video is optional: choose one in the Videos section whenever you are ready.
+  const VIDEO_DB_NAME='angelBirthdayVideoVault_v1';
+  let videoDbPromise=null;
+  let videoObjectUrls=[];
+  let featuredVideoObjectUrl=null;
+  let featuredVideoRecordId=null;
+  function openVideoDb(){
+    if(videoDbPromise)return videoDbPromise;
+    videoDbPromise=new Promise((resolve,reject)=>{
+      if(!('indexedDB' in window)){reject(new Error('IndexedDB is not available in this browser.'));return;}
+      const request=indexedDB.open(VIDEO_DB_NAME,1);
+      request.onupgradeneeded=()=>{const db=request.result;if(!db.objectStoreNames.contains('videos'))db.createObjectStore('videos',{keyPath:'id',autoIncrement:true});};
+      request.onsuccess=()=>resolve(request.result);
+      request.onerror=()=>reject(request.error||new Error('Could not open the video shelf.'));
+      request.onblocked=()=>reject(new Error('The video shelf is blocked by another browser tab.'));
+    });
+    return videoDbPromise;
+  }
+  function videoTransaction(mode,work){return openVideoDb().then(db=>new Promise((resolve,reject)=>{const tx=db.transaction('videos',mode);const store=tx.objectStore('videos');let value;try{value=work(store)}catch(err){reject(err);return}tx.oncomplete=()=>resolve(value);tx.onerror=()=>reject(tx.error||new Error('Video storage failed.'));tx.onabort=()=>reject(tx.error||new Error('Video storage was cancelled.'))}))}
+  function getSavedVideos(){return videoTransaction('readonly',store=>new Promise((resolve,reject)=>{const request=store.getAll();request.onsuccess=()=>resolve(request.result||[]);request.onerror=()=>reject(request.error||new Error('Could not read saved videos.'))})).then(value=>value);}
+  function clearVideoObjectUrls(){videoObjectUrls.forEach(url=>URL.revokeObjectURL(url));videoObjectUrls=[];}
+  function renderFeaturedVideo(record){
+    const video=$('#featuredBirthdayVideo');
+    if(featuredVideoObjectUrl){URL.revokeObjectURL(featuredVideoObjectUrl);featuredVideoObjectUrl=null;}
+    featuredVideoRecordId=record?.id??null;
+    if(record?.blob){
+      featuredVideoObjectUrl=URL.createObjectURL(record.blob);video.src=featuredVideoObjectUrl;video.classList.remove('hidden');$('#featuredVideoEmpty').classList.add('hidden');
+      $('#featuredVideoTitle').textContent=record.name||'Angel’s birthday memory';$('#featuredVideoCaption').textContent='Your chosen video is saved in this browser on this device. 🤍';$('#removeFeaturedVideo').classList.remove('hidden');
+    }else{
+      video.pause();video.removeAttribute('src');video.load();video.classList.add('hidden');$('#featuredVideoEmpty').classList.remove('hidden');
+      $('#featuredVideoTitle').textContent='Add a birthday video for '+normalizedName();$('#featuredVideoCaption').textContent='Choose a clip from your device. It stays saved in this browser on this device. 🤍';$('#removeFeaturedVideo').classList.add('hidden');
+    }
+  }
+  function renderUploadedVideos(records){
+    const grid=$('#uploadedVideosGrid');if(!grid)return;clearVideoObjectUrls();grid.innerHTML='';
+    if(!records.length){const empty=document.createElement('div');empty.className='video-empty';empty.innerHTML='🐰 Your video shelf is waiting for more memories.<br><span style="font-size:.88rem">Use “Add videos” to keep another favourite clip here.</span>';grid.appendChild(empty);return;}
+    records.sort((a,b)=>(a.createdAt||0)-(b.createdAt||0));
+    records.forEach(record=>{
+      const card=document.createElement('article');card.className='uploaded-video-card';
+      const video=document.createElement('video');video.controls=true;video.playsInline=true;video.preload='metadata';video.setAttribute('aria-label',record.name||'Saved birthday video');const url=URL.createObjectURL(record.blob);videoObjectUrls.push(url);video.src=url;
+      const footer=document.createElement('div');footer.className='uploaded-video-title-row';const name=document.createElement('span');name.className='uploaded-video-title';name.textContent=record.name||'Video memory';
+      const remove=document.createElement('button');remove.type='button';remove.className='video-remove';remove.textContent='Remove';remove.setAttribute('aria-label',`Remove ${record.name||'video'}`);remove.addEventListener('click',async()=>{if(!window.confirm(`Remove “${record.name||'this video'}” from this browser’s video shelf?`))return;try{await videoTransaction('readwrite',store=>store.delete(record.id));await refreshUploadedVideos();showToast('Video removed from your shelf. ♡')}catch(err){showToast('Could not remove this video. Try again in the same browser.')}});
+      footer.append(name,remove);card.append(video,footer);grid.appendChild(card);
+    });
+  }
+  async function refreshUploadedVideos(){
+    try{const records=await getSavedVideos();const featured=records.filter(record=>record.isFeatured).sort((a,b)=>(b.createdAt||0)-(a.createdAt||0))[0]||null;renderFeaturedVideo(featured);renderUploadedVideos(records.filter(record=>!record.isFeatured));$('#videoLibraryStatus').textContent='Your featured video and extra uploads are saved in this browser on this device. They are not sent to a server or automatically shared with other visitors.';}
+    catch(err){console.error('Video storage unavailable:',err);renderFeaturedVideo(null);renderUploadedVideos([]);$('#videoLibraryStatus').textContent='This browser could not open persistent video storage. Try using Chrome/Edge or opening the page through HTTPS or localhost.';}
+  }
+  $('#chooseFeaturedVideo').addEventListener('click',()=>$('#featuredVideoInput').click());
+  $('#featuredVideoInput').addEventListener('change',async event=>{
+    const file=[...event.target.files].find(item=>item.type.startsWith('video/'));
+    if(!file){event.target.value='';return;}
+    if(file.size>250*1024*1024){showToast('That video is over the 250 MB limit. Choose a smaller clip.');event.target.value='';return;}
+    try{
+      await videoTransaction('readwrite',store=>{const request=store.getAll();request.onsuccess=()=>{request.result.filter(record=>record.isFeatured).forEach(record=>store.delete(record.id));store.add({name:file.name,type:file.type||'video/mp4',blob:new Blob([file],{type:file.type||'video/mp4'}),isFeatured:true,createdAt:Date.now()});};return request;});
+      await refreshUploadedVideos();showToast('Your featured video is saved, Angel! ♡');
+    }catch(err){console.error('Featured video save failed:',err);showToast('Could not save that video. Check browser storage or try a smaller clip.');}
+    event.target.value='';
+  });
+  $('#removeFeaturedVideo').addEventListener('click',async()=>{
+    if(featuredVideoRecordId===null)return;
+    if(!window.confirm('Remove the featured video from this browser?'))return;
+    try{await videoTransaction('readwrite',store=>store.delete(featuredVideoRecordId));await refreshUploadedVideos();showToast('Featured video removed. You can choose another any time. ♡');}
+    catch(err){showToast('Could not remove the featured video. Try again.');}
+  });
+  $('#addVideos').addEventListener('click',()=>$('#videoInput').click());
+  $('#videoInput').addEventListener('change',async event=>{
+    const files=[...event.target.files].filter(file=>file.type.startsWith('video/'));
+    if(!files.length){event.target.value='';return;}
+    let saved=0;
+    for(const file of files){
+      if(file.size>250*1024*1024){showToast(`${file.name} is over the 250 MB per-video limit.`);continue;}
+      try{await videoTransaction('readwrite',store=>store.add({name:file.name,type:file.type||'video/mp4',blob:new Blob([file],{type:file.type||'video/mp4'}),createdAt:Date.now()}));saved++;}
+      catch(err){console.error('Video save failed:',err);showToast('The browser could not save that video. Storage may be full; try a smaller clip.');break;}
+    }
+    await refreshUploadedVideos();if(saved)showToast(`${saved} video${saved===1?'':'s'} saved to your video shelf. ♡`);event.target.value='';
+  });
+  refreshUploadedVideos();
+
+  $('#saveWish').addEventListener('click',()=>{const wish=$('#wishText').value.trim();if(!wish){$('#wishSaved').textContent='Write a tiny wish first, birthday girl. ♡';return}localStorage.setItem(STORAGE.wish,wish);$('#wishSaved').textContent='Your wish has been tucked safely into this little universe. ♡';burst(14)});$('#clearWish').addEventListener('click',()=>{$('#wishText').value='';localStorage.removeItem(STORAGE.wish);$('#wishSaved').textContent='A fresh page for a fresh wish. ♡'});
+
+  // Candle interaction. When the final flame goes out, play a soft synthesized Happy Birthday melody.
+  let blown=new Set();let birthdaySongPlayed=false;let birthdaySongContext=null;let birthdaySongStopTimer=null;
+  function stopBirthdaySong(){if(birthdaySongStopTimer){clearTimeout(birthdaySongStopTimer);birthdaySongStopTimer=null;}const ctx=birthdaySongContext;birthdaySongContext=null;if(ctx&&ctx.state!=='closed')ctx.close().catch(()=>{});}
+  async function playBirthdaySong(){
+    stopBirthdaySong();$('#songStatus').textContent='🎶 Happy Birthday, Angel! Starting your little birthday tune… ♡';$('#birthdayLyrics').classList.remove('hidden');$('#playSongAgain').classList.remove('hidden');
+    const AudioCtx=window.AudioContext||window.webkitAudioContext;
+    if(!AudioCtx){$('#songStatus').textContent='Happy birthday, Angel! Your browser cannot play the tune automatically, but the birthday lyrics are here for you. ♡';return;}
+    const ctx=new AudioCtx();birthdaySongContext=ctx;
+    try{await ctx.resume();}catch(err){}
+    const master=ctx.createGain();master.gain.setValueAtTime(.18,ctx.currentTime);master.connect(ctx.destination);
+    const notes={G4:392.00,A4:440.00,B4:493.88,C5:523.25,D5:587.33,E5:659.25,F5:698.46,G5:783.99};
+    const melody=[['G4',.24],['G4',.24],['A4',.46],['G4',.46],['C5',.46],['B4',.72],['G4',.24],['G4',.24],['A4',.46],['G4',.46],['D5',.46],['C5',.72],['G4',.24],['G4',.24],['G5',.46],['E5',.46],['C5',.46],['B4',.46],['A4',.72],['F5',.24],['F5',.24],['E5',.46],['C5',.46],['D5',.46],['C5',.88]];
+    let when=ctx.currentTime+.08;
+    melody.forEach(([note,duration])=>{const osc=ctx.createOscillator();const tone=ctx.createGain();osc.type='triangle';osc.frequency.setValueAtTime(notes[note],when);tone.gain.setValueAtTime(.0001,when);tone.gain.exponentialRampToValueAtTime(.62,when+.025);tone.gain.exponentialRampToValueAtTime(.18,when+duration*.65);tone.gain.exponentialRampToValueAtTime(.0001,when+duration+.07);osc.connect(tone);tone.connect(master);osc.start(when);osc.stop(when+duration+.08);when+=duration+.045;});
+    $('#songStatus').textContent='🎶 Happy Birthday, Angel! Your little birthday tune is playing. ♡';$('#birthdayLyrics').classList.remove('hidden');$('#playSongAgain').classList.remove('hidden');
+    birthdaySongStopTimer=setTimeout(()=>{if(birthdaySongContext===ctx){birthdaySongContext=null;ctx.close().catch(()=>{});$('#songStatus').textContent='Happy birthday, Angel! ♡ Tap the button below to hear your tune again.';}},Math.max(1000,(when-ctx.currentTime)*1000+400));
+  }
+  function updateCandles(){ $$('.flame').forEach((flame,i)=>flame.classList.toggle('out',blown.has(i)));const remaining=5-blown.size;if(remaining===0){$('#cakeMessage').textContent='Wish made. May this year be so good to you. 🤍';$('#micNote').textContent='All five candles are out. Your wish is on its way. ♡';burst(34);if(!birthdaySongPlayed){birthdaySongPlayed=true;playBirthdaySong();}}else{$('#cakeMessage').textContent=blown.size?`${blown.size} candle${blown.size===1?'':'s'} down… ${remaining} little light${remaining===1?'':'s'} left.`:''}}
+  $$('.candle-hit').forEach(btn=>btn.addEventListener('click',()=>{const i=Number(btn.dataset.candle);if(blown.has(i))return;blown.add(i);updateCandles()}));
+  function stopMic(){if(micRaf)cancelAnimationFrame(micRaf);micRaf=null;if(micStream){micStream.getTracks().forEach(t=>t.stop());micStream=null}if(audioContext){audioContext.close().catch(()=>{});audioContext=null}}
+  $('#micBlow').addEventListener('click',async()=>{if(blown.size===5){$('#micNote').textContent='Your candles are already out — relight them to make another wish!';return}if(!navigator.mediaDevices||!navigator.mediaDevices.getUserMedia){$('#micNote').textContent='This browser cannot use microphone mode here. Tap the candles or use “No mic? blow them out”.';return}try{stopMic();$('#micNote').textContent='Listening for a gentle puff… breathe toward your microphone!';micStream=await navigator.mediaDevices.getUserMedia({audio:{echoCancellation:true,noiseSuppression:true,autoGainControl:false}});audioContext=new (window.AudioContext||window.webkitAudioContext)();const source=audioContext.createMediaStreamSource(micStream);const analyser=audioContext.createAnalyser();analyser.fftSize=1024;source.connect(analyser);const samples=new Uint8Array(analyser.fftSize);micStartedAt=performance.now();micAboveSince=0;let lastHint=micStartedAt;const listen=()=>{if(!micStream)return;analyser.getByteTimeDomainData(samples);let sum=0;for(let i=0;i<samples.length;i++){const v=(samples[i]-128)/128;sum+=v*v}const rms=Math.sqrt(sum/samples.length);const now=performance.now();if(rms>.115){if(!micAboveSince)micAboveSince=now;if(now-micAboveSince>180){blown=new Set([0,1,2,3,4]);updateCandles();$('#micNote').textContent='That was a birthday-worthy puff! Microphone is now off. ♡';stopMic();return}}else micAboveSince=0;if(now-micStartedAt>18000){$('#micNote').textContent='No puff detected this time — try again, or tap the no-mic button. The microphone is now off.';stopMic();return}if(now-lastHint>5000){$('#micNote').textContent='A little closer to the microphone might help — or use the no-mic button. ♡';lastHint=now}micRaf=requestAnimationFrame(listen)};micRaf=requestAnimationFrame(listen)}catch(err){stopMic();$('#micNote').textContent='Microphone permission was unavailable. No worries — tap the candles or use the no-mic button.'}});
+  $('#tapBlow').addEventListener('click',()=>{blown=new Set([0,1,2,3,4]);stopMic();updateCandles();$('#micNote').textContent='No microphone needed — wish made, candles out! ♡'});
+  $('#playSongAgain').addEventListener('click',()=>playBirthdaySong());
+  $('#relight').addEventListener('click',()=>{stopMic();stopBirthdaySong();birthdaySongPlayed=false;$('#playSongAgain').classList.add('hidden');$('#birthdayLyrics').classList.add('hidden');$('#songStatus').textContent='';blown.clear();updateCandles();$('#micNote').textContent='Candles relit! Think of another little wish and blow again. ♡';showToast('Five little flames, ready for another wish.')});
+
+  // Start from saved preferences when the file is reopened.
+  $('#friendName').value=friendName;
+  window.addEventListener('pagehide',()=>{stopMic();stopBirthdaySong();clearVideoObjectUrls()});
+})();
+</script>
+</body>
+</html>
